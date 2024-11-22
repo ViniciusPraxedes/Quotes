@@ -1,0 +1,56 @@
+{
+  "name": "stretch",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.13.6",
+    "@cap-js/hana": "^1",
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "express": "^4",
+    "hdb": "^0.19.10",
+    "mta": "^1.0.8"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1.7.4",
+    "@sap/cds-dk": "^8"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
+    "requires": {
+      "db": {
+        "kind": "hana",
+        "credentials": {
+          "url": "db.stretch"
+        },
+        "schema_evolution": "auto"
+      },
+      "[production]": {
+        "auth": {
+          "kind": "basic",
+          "users": {
+            "admin": {
+              "password": "password"
+            }
+          }
+        },
+        "db": "hana"
+      },
+      "[hybrid]": {
+        "db": "hana"
+      }
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  }
+}

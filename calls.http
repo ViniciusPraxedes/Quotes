@@ -1,0 +1,11 @@
+GET http://localhost:4004/odata/v4/quotes/Quotations
+
+###
+
+POST http://localhost:4004/odata/v4/person/Person
+Content-Type: application/json
+
+{
+  "name": "Joe",
+  "age": 30
+}
